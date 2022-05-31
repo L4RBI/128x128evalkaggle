@@ -53,12 +53,14 @@ def test_fn(
         resultat.append(L1.item()*255)
         resultat2.append(ssim.item())
         resultat3.append(mse.item())
-
+        save_image(y_fake,sys.argv[9]+"/image/"+z[0])
+        if sys.argv[10]=="true":
+            save_image(y, "original/" + z[0])
         if idx % 1 == 0:
             loop.set_postfix(
 
                 L1    =L1.item()*255,
-                #ssim=ssim.item(),
+                ssim=ssim.item(),
                 mse=mse.item()*255
             )
 
